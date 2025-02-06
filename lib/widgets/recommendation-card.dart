@@ -7,7 +7,7 @@ import 'package:job_app/utils/text_styles.dart';
 Widget recommendationCard( BuildContext context,
       String company, String location, String position, String details, String salary , String? imageUrl , List<String> skills , List<String> descriptions) {
     return Card(
-      color: Colors.white,
+      color: company !="Facebook"?  AppColors.lightBlue:Colors.white,
       elevation: 2.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
@@ -25,7 +25,7 @@ Widget recommendationCard( BuildContext context,
               contentPadding: EdgeInsets.zero,
                leading: CircleAvatar(
                  radius: 20.0,
-                 backgroundImage: NetworkImage(imageUrl ?? ""),
+                 backgroundImage: Image.asset(imageUrl!).image,
                ),
                title: Text(company, style: Theme.of(context).textTheme.headlineSmall,),
                subtitle: Text(location, style: AppTextStyles.bodyText2),

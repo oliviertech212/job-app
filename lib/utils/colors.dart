@@ -6,11 +6,14 @@ import 'package:google_fonts/google_fonts.dart';
 const BackgroundColor = Color(0xFFFAFDFF);
 const PrimaryColor = Color(0xFF3F6CDF);
 const TextColor = Color(0xFFB4B7BC);
+// ecf0fc
+const LightBlue = Color(0xFFECF0FC);
 
 class AppColors {
   static const backgroundColor = BackgroundColor;
   static const primaryColor = PrimaryColor;
   static const textColor = TextColor;
-  
+  static const lightBlue = LightBlue;
+
 }
 

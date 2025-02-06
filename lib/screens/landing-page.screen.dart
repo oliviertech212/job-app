@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:job_app/utils/colors.dart';
 import 'package:job_app/utils/text_styles.dart';
+import 'package:job_app/widgets/recent-job-card.dart';
 import 'package:job_app/widgets/recommendation-card.dart';
 
 class LandingPageScreen extends StatefulWidget {
@@ -42,7 +43,11 @@ class _LandingPageScreenState extends State<LandingPageScreen> {
                             'California, USA',
                             'Motion Designer',
                             'Senior • Fulltime • Remote',
-                            '\$7K',""
+                            '\$7K',"assets/images/pinterest.png",
+                            //skills
+                            ["UI Design", "UX Design", "Interaction Design"],
+                            //descriptions
+                            ["Designing and prototyping user interfaces", "Designing and prototyping user interfaces", "Designing and prototyping user interfaces"]
                           ),
                           SizedBox(width: 16.0),
                           recommendationCard( context,
@@ -51,7 +56,9 @@ class _LandingPageScreenState extends State<LandingPageScreen> {
                             'UI Design',
                             'Senior • Fulltime',
                             '\$6K',
-                            ""
+                            "assets/images/facebook.png",
+                            ["UI Design", "UX Design", "Interaction Design"],
+                            ["Designing and prototyping user interfaces", "Designing and prototyping user interfaces", "Designing and prototyping user interfaces"]
                           ),
                           SizedBox(width: 16.0),
                           recommendationCard( context,
@@ -60,7 +67,9 @@ class _LandingPageScreenState extends State<LandingPageScreen> {
                             'Product Designer',
                             'Senior • Fulltime • Remote',
                             '\$5K',
-                            ""
+                            "assets/images/google.png",
+                            ["UI Design", "UX Design", "Interaction Design"],
+                            ["Designing and prototyping user interfaces", "Designing and prototyping user interfaces", "Designing and prototyping user interfaces"]
                           ),
                         ],
                       ),
@@ -69,26 +78,30 @@ class _LandingPageScreenState extends State<LandingPageScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: Text(
-                        'Recent Jobs',
-                        style: AppTextStyles.bodyText1,
+                        'Recent Jobs List',
+                         style: Theme.of(context).textTheme.headlineLarge,
                       ),
                     ),
                     SizedBox(height: 16.0),
-                    _buildRecentJobCard(
+                    recentJobCard(
+                      context,
                       'Google',
                       'Product Designer',
                       'Senior • Fulltime • Remote',
                       '\$5K',
                       '12 Minute Ago',
+                      'assets/images/google.png',
                       
                     ),
                     SizedBox(height: 16.0),
-                    _buildRecentJobCard(
+                    recentJobCard(
+                      context,
                       'Apple',
                       'UI/UX Designer',
                       'Fulltime • Remote',
                       '\$6K',
                       '30 Minute Ago',
+                       'assets/images/apple.png',
                     ),
                   ],
                 ),
@@ -215,44 +228,5 @@ class _LandingPageScreenState extends State<LandingPageScreen> {
 
   
 
-  Widget _buildRecentJobCard(
-      String company, String position, String details, String salary, String timeSince) {
-    return Card(
-      elevation: 2.0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(company, style: AppTextStyles.bodyText1),
-                Text(timeSince, style: AppTextStyles.bodyText2),
-              ],
-            ),
-            SizedBox(height: 8.0),
-            Text(position, style: AppTextStyles.bodyText1),
-            SizedBox(height: 4.0),
-            Text(details, style: AppTextStyles.bodyText2),
-            SizedBox(height: 8.0),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primaryColor,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-              ),
-              child: Text(salary),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  
 }
