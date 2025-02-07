@@ -205,16 +205,9 @@ class JobDetailPage extends StatelessWidget {
                     ),
                   
                   ),
-                   Container(
-                    margin: const EdgeInsets.only(top: 30),
-                    padding: const EdgeInsets.symmetric(horizontal: 6),
-                      height: 30,
-                      width: 30,
-                      color: Colors.black.withOpacity(0.5),
-                      child: IconButton(onPressed: (){
-                        Navigator.pop(context);
-                      }, icon: Icon(Icons.arrow_back , size: 30 , color: Colors.white,),),
-                    ),
+               
+            
+                
             Positioned(
               top: 160,
               left: MediaQuery.of(context).size.width / 2 - 50,
@@ -223,6 +216,8 @@ class JobDetailPage extends StatelessWidget {
                 backgroundImage: AssetImage(logoUrl),
               ),
             ),
+
+      
             
           ],
         ),

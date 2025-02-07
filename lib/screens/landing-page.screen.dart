@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:job_app/utils/colors.dart';
-import 'package:job_app/utils/text_styles.dart';
 import 'package:job_app/widgets/recent-job-card.dart';
 import 'package:job_app/widgets/recommendation-card.dart';
 
@@ -100,7 +99,7 @@ class _LandingPageScreenState extends State<LandingPageScreen> {
                       'Fulltime • Remote',
                       '\$6K',
                       '30 Minute Ago',
-                       'assets/images/apple.png',
+                       '',
                     ),
                   ],
                 ),

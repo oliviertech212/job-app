@@ -74,7 +74,22 @@ Widget recommendationCard(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                           Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => JobDetailPage(
+            company: company,
+            location: location,
+            position: position,
+            salary: salary,
+            skills: skills,
+            descriptions: descriptions,
+            logoUrl: imageUrl,
+          ),
+        ),
+      );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.primaryColor,
                           foregroundColor: Colors.white,
