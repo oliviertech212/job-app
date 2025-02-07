@@ -34,15 +34,7 @@ class JobDetailPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 230,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/teamgoogle.jpeg"),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
+                       SizedBox(height: 230),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Center(
@@ -62,11 +54,24 @@ class JobDetailPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Column(
                       children: [
-                       const  TabBar(
+                      //  const  TabBar(
+                      //     labelStyle: TextStyle(fontStyle: FontStyle.normal),
+                      //       physics: AlwaysScrollableScrollPhysics(), 
+                      //     isScrollable: false,
+                      //     tabs:  [
+                      //       Tab(text: 'Description'),
+                      //       Tab(text: 'Company'),
+                      //       Tab(text: 'Applicant'),
+                      //       Tab(text: 'Salary'),
+                      //     ],
+                      //   ),
+
+                        const TabBar(
+                          tabAlignment: TabAlignment.start  ,
                           labelStyle: TextStyle(fontStyle: FontStyle.normal),
-                            physics: AlwaysScrollableScrollPhysics(), 
-                          isScrollable: false,
-                          tabs:  [
+                          physics: AlwaysScrollableScrollPhysics(),
+                          isScrollable: true,
+                          tabs: [
                             Tab(text: 'Description'),
                             Tab(text: 'Company'),
                             Tab(text: 'Applicant'),
@@ -75,7 +80,7 @@ class JobDetailPage extends StatelessWidget {
                         ),
                         IntrinsicHeight(
                           child: SizedBox(
-                            height: 300,
+                            height: 250,
                             child: TabBarView(
                               children: [
                                 SingleChildScrollView(
@@ -89,9 +94,9 @@ class JobDetailPage extends StatelessWidget {
                                           style: Theme.of(context).textTheme.headlineSmall,
                                         ),
                                         ...descriptions.map((desc) => ListTile(
-                                          leading: Icon(Icons.circle, size: 8.0),
+                                          leading: const Icon(Icons.circle, size: 8.0),
                                           title: Text(desc, style: AppTextStyles.bodyText2),
-                                        )).toList(),
+                                        )),
                                       ],
                                     ),
                                   ),
@@ -122,7 +127,7 @@ class JobDetailPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                     padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 0.0),   
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -146,17 +151,79 @@ class JobDetailPage extends StatelessWidget {
                       ],
                     ),
                   ),
+
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 16.0),                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width - 150,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.primaryColor,
+                              foregroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                            child: const  Text("Apply Now"),
+                          ),
+                        ),
+                    
+                    
+                          ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.primaryColor,
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                          child: const Icon(Icons.message_outlined , color: Colors.white,),
+                        ),
+                       
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
+
+            
+             Container(
+                    height: 230,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      image:  DecorationImage(
+                        image: AssetImage("assets/images/teamgoogle.jpeg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  
+                  ),
+                   Container(
+                    margin: const EdgeInsets.only(top: 30),
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                      height: 30,
+                      width: 30,
+                      color: Colors.black.withOpacity(0.5),
+                      child: IconButton(onPressed: (){
+                        Navigator.pop(context);
+                      }, icon: Icon(Icons.arrow_back , size: 30 , color: Colors.white,),),
+                    ),
             Positioned(
-              top: 180,
+              top: 160,
               left: MediaQuery.of(context).size.width / 2 - 50,
-              child: CircleAvatar(
+              child: CircleAvatar( 
                 radius: 50,
                 backgroundImage: AssetImage(logoUrl),
               ),
             ),
+            
           ],
         ),
       ),

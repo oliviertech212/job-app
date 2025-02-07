@@ -8,7 +8,6 @@ class LandingPageScreen extends StatefulWidget {
   @override
   State<LandingPageScreen> createState() => _LandingPageScreenState();
 }
-
 class _LandingPageScreenState extends State<LandingPageScreen> {
   @override
   Widget build(BuildContext context) {
@@ -209,7 +208,6 @@ class _LandingPageScreenState extends State<LandingPageScreen> {
               ),
               child: TextField(
                 decoration: InputDecoration(
-
                   hintText: 'Search job, company, etc...',
                   prefixIcon: const Icon(Icons.search , color: Colors.grey, size: 30,),
                   border: InputBorder.none,

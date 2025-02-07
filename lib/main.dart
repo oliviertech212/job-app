@@ -69,8 +69,6 @@ class MyApp extends StatelessWidget {
 class LAyoutScreen extends StatefulWidget {
   @override
   State<LAyoutScreen> createState() => _LAyoutScreenState();
-
-
 }
 
 class _LAyoutScreenState extends State<LAyoutScreen> {
@@ -99,57 +97,56 @@ class _LAyoutScreenState extends State<LAyoutScreen> {
       backgroundColor: AppColors.backgroundColor  ,
       
       body:    contet,
+
+
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex:  currentIndex,
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              _changeContent(LandingPageScreen() , index);
+              break;
+            case 1:
+              _changeContent(Center(child: Container(child: Text("chart"),)) , index);
+              break;
+            case 2:
+              _changeContent(Center(child: Container(child: Text("favorite"),)) , index);
+              break;
+            case 3:
+            _changeContent(Center(child: Container(child: Text("profile"),)) , index);
+              break;
+          }
+        },
+        showSelectedLabels: false,  
+        showUnselectedLabels: false, 
+        selectedItemColor: Colors.black, 
+        unselectedItemColor: Colors.grey, 
+        iconSize: 32.0, 
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_filled),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.show_chart),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite_border),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: '',
+          ),
+        ],
+      )
+    
       
 
 
 
-       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
-        unselectedItemColor: AppColors.textColor,
-        selectedItemColor: Colors.black,
-        currentIndex: currentIndex,
-        onTap: (index) {
-          switch (index) {
-            case 0:
-               
-              _changeContent(LandingPageScreen() , index);
-              break;
-            case 1:
-              _changeContent(LandingPageScreen() , index);
-              break;
-            case 2:
-              _changeContent(LandingPageScreen() , index);
-              break;
-            case 3:
-              _changeContent(LandingPageScreen() , index);
-              break;
-          }
-        },
-        items: const <BottomNavigationBarItem>[
-
-
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart),
-            label: 'Metrics',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Heart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-
-
-          
-        ),
+   
     );
   }
 }
